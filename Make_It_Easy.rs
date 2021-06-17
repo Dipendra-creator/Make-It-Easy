@@ -22,6 +22,19 @@ fn int_space_input() -> Vec<i32> {
     return vec0;
 }
 
+fn array_to_space_seperated_string(array: Vec<i32>) -> String {
+    let length = array.len();
+    let mut answer = array[0].to_string().to_owned();
+    answer.push_str(&" ".to_owned());
+    for instance in 1..length-1 {
+        answer.push_str(&array[instance].to_string().to_owned());
+        answer.push_str(&" ".to_owned());
+    } 
+    answer.push_str(&array[length-1].to_string().to_owned());
+    return answer.to_string();
+}
+
+
 fn main() {
     println!("Input Your Name: ");
     let str_value: String = str_input();
@@ -33,4 +46,5 @@ fn main() {
     println!("Space Seprated List Input Function");
     let vec1 = int_space_input();
     println!("{:?}", vec1);
+    println!("{}", array_to_space_seperated_string(vec1));
 }
