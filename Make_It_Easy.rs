@@ -35,6 +35,28 @@ fn array_to_space_seperated_string(array: Vec<i32>) -> String {
 }
 
 
+fn binary_search(array: Vec<i32>, element: i32, length: i32) -> i32 {
+    let mut left = 0;
+    let mut right = length - 1;
+
+    while left <= right {
+        let a = right - left;
+        let b = a / 2;
+        let mid = left + b;
+        if array[mid as usize] == element{
+            return mid;
+        }
+        else if element < array[mid as usize] {
+            right = mid - 1;
+        }
+        else {
+            left = mid + 1;
+        }
+    }
+    return -1;
+}
+
+
 fn main() {
     println!("Input Your Name: ");
     let str_value: String = str_input();
